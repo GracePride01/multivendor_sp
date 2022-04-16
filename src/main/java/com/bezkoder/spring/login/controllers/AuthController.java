@@ -9,6 +9,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,13 +23,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bezkoder.spring.login.models.Addproduct;
 import com.bezkoder.spring.login.models.ERole;
 import com.bezkoder.spring.login.models.Role;
 import com.bezkoder.spring.login.models.User;
+import com.bezkoder.spring.login.payload.request.AddProductRequest;
 import com.bezkoder.spring.login.payload.request.LoginRequest;
 import com.bezkoder.spring.login.payload.request.SignupRequest;
 import com.bezkoder.spring.login.payload.response.UserInfoResponse;
 import com.bezkoder.spring.login.payload.response.MessageResponse;
+import com.bezkoder.spring.login.repository.AddProductRepository;
 import com.bezkoder.spring.login.repository.RoleRepository;
 import com.bezkoder.spring.login.repository.UserRepository;
 import com.bezkoder.spring.login.security.jwt.JwtUtils;
@@ -126,6 +130,31 @@ public class AuthController {
 
     return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
   }
+
+
+
+
+
+
+  @PostMapping("/add_product")
+  public ResponseEntity<?> createTutorial(@RequestBody AddProductRequest product) {
+    try {
+      Addproduct _product = AddProductRepository
+          .save(new Addproduct());
+      return new ResponseEntity<>(_product, HttpStatus.CREATED);
+    } catch (Exception e) {
+      return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+  }
+  
+
+
+
+
+
+
+
+
 
   @PostMapping("/signout")
   public ResponseEntity<?> logoutUser() {

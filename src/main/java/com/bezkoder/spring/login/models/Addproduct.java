@@ -38,7 +38,7 @@ public class Addproduct {
 	private String categ;
 	public Addproduct() {
 	}
-	public Addproduct(String pro_name, String short_line, String detail_des, Blob img_1, Blob img_2, Blob img_3, Blob img_4, String size, Double actual_price, Double discount_price, Double selling_price, int item_stock, String categ){
+	public Addproduct(String pro_name, String short_line, String detail_des, Blob img_1, Blob img_2, Blob img_3, Blob img_4,String size, Double actual_price, Double discount_price, Double selling_price, int item_stock, String categ){
 		this.pro_name = pro_name;
 		this.short_line =short_line;
 		this.detail_des = detail_des;
