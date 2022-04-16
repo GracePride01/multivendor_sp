@@ -1,7 +1,6 @@
 package com.bezkoder.spring.login.payload.request;
 
 import java.sql.Blob;
-import java.util.Set;
 
 import javax.validation.constraints.*;
 public class AddProductRequest {
