@@ -137,7 +137,7 @@ public class AuthController {
 
 
   @PostMapping("/add_product")
-  public ResponseEntity<?> createTutorial(@RequestBody AddProductRequest product) {
+  public ResponseEntity<?> createProduct(@RequestBody AddProductRequest product) {
     try {
       Addproduct _product = AddProductRepository
           .save(new Addproduct());
