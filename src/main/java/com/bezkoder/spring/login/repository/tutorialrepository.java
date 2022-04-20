@@ -6,6 +6,10 @@ import com.bezkoder.spring.login.models.Tutorial;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface tutorialrepository extends JpaRepository<Tutorial, Long> {
+    Object findAll = null;
     List<Tutorial> findByPublished(boolean published);
-    List<Tutorial> findByTitleContaining(String title);
+    static List<Tutorial> findByTitleContaining(String title) {
+      // TODO Auto-generated method stub
+      return null;
+    }
   }

@@ -1,5 +1,6 @@
 package com.bezkoder.spring.login.controllers;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -18,12 +19,15 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.bezkoder.spring.login.models.ERole;
 import com.bezkoder.spring.login.models.Role;
+import com.bezkoder.spring.login.models.Tutorial;
 import com.bezkoder.spring.login.models.User;
 import com.bezkoder.spring.login.payload.request.LoginRequest;
 import com.bezkoder.spring.login.payload.request.SignupRequest;
@@ -31,6 +35,7 @@ import com.bezkoder.spring.login.payload.response.UserInfoResponse;
 import com.bezkoder.spring.login.payload.response.MessageResponse;
 import com.bezkoder.spring.login.repository.RoleRepository;
 import com.bezkoder.spring.login.repository.UserRepository;
+import com.bezkoder.spring.login.repository.tutorialrepository;
 import com.bezkoder.spring.login.security.jwt.JwtUtils;
 import com.bezkoder.spring.login.security.services.UserDetailsImpl;
 
@@ -55,23 +60,7 @@ public class AuthController {
 
 
 
-  @GetMapping("/tutorials")
-  public ResponseEntity<List<Tutorial>> getAllTutorials(@RequestParam(required = false) String title, String desc) {
-    try {
-      List<Tutorial> tutorials = new ArrayList<Tutorial>();
-      if (title == null)
-        tutorialRepository.findAll().forEach(tutorials::add);
-      else
-        tutorialRepository.findByTitleContaining(title).forEach(tutorials::add);
-      
-      if (tutorials.isEmpty()) {
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-      }
-      return new ResponseEntity<>(tutorials, HttpStatus.OK);
-    } catch (Exception e) {
-      return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-    }
-  }
+  
 
 
   

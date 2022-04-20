@@ -33,7 +33,7 @@ public class TutorialController {
       if (title == null)
         tutorialRepository.findAll().forEach(tutorials::add);
       else
-        tutorialRepository.findByTitleContaining(title).forEach(tutorials::add);
+        tutorialrepository.findByTitleContaining(title).forEach(tutorials::add);
       
       if (tutorials.isEmpty()) {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
