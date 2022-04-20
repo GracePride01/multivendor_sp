@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.bezkoder.spring.login.models.ERole;
 import com.bezkoder.spring.login.models.Role;
@@ -60,7 +61,11 @@ public class AuthController {
 
 
 
-  
+  @GetMapping("/saveData")
+  @ResponseBody
+    public String saveData(){
+        return("sucess");
+    }
 
 
   
