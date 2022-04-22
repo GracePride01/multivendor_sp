@@ -2,7 +2,7 @@ package com.bezkoder.spring.login.models;
 
 import javax.persistence.*;
 @Entity
-@Table(name = "add_product")
+@Table(name = "add_pro")
 public class Tutorial {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
