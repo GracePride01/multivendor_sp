@@ -18,7 +18,7 @@ public class SpringBootLoginExampleApplication implements CommandLineRunner{
     public void run(String... args) throws Exception
     {
         // Inserting the data in the mysql table.
-        user1 first = new user1(1, "Aayush");
+        user1 first = new user1();
         // ob.save() method
         ob.save(first);
     }

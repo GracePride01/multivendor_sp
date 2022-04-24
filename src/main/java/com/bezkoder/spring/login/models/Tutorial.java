@@ -13,8 +13,7 @@ public class Tutorial {
 	private String description;
 	@Column(name = "detail_des")
 	private String published;
-	public Tutorial() {
-	}
+	public Tutorial() {}
 	public Tutorial(String title, String description, String published) {
 		this.title = title;
 		this.description = description;
