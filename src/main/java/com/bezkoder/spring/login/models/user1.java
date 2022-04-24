@@ -1,28 +1,27 @@
 package com.bezkoder.spring.login.models;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "user1")
+@Table(name = "add_product")
 public class user1 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int pro_id;
+     int proid;
 	@Column(name = "pro_name")
-	String title;
+	 String proname;
 	@Column(name = "short_line")
-	String description;
+	 String shortline;
 	@Column(name = "detail_des")
-	 String published;
-    public user1() {}
-    public user1(String title, String description, String published) {
-		this.title = title;
-		this.description = description;
-		this.published = published;
+	 String detaildes;
+	public user1(int proid, String proname, String shortline, String detaildes) {
+	}
+	public user1(String proname, String shortline, String detaildes) {
+		this.proname = proname;
+		this.shortline = shortline;
+		this.detaildes = detaildes;
 	}
 }
