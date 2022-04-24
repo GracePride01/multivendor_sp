@@ -2,7 +2,6 @@ package com.bezkoder.spring.login;
 
 import com.bezkoder.spring.login.models.user1;
 import com.bezkoder.spring.login.repository.userRepo;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -18,7 +17,9 @@ public class SpringBootLoginExampleApplication implements CommandLineRunner{
     public void run(String... args) throws Exception
     {
         // Inserting the data in the mysql table.
-        user1 first = new user1();
+       
+        
+        user1 first = new user1("watch",  "branded","mens watch");
         // ob.save() method
         ob.save(first);
     }
