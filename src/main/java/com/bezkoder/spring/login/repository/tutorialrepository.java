@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface tutorialrepository extends JpaRepository<Tutorial, Integer> {
     Object findAll = null;
-    List<Tutorial> findByPublishe(String published);
+    List<Tutorial> findByPublished(String published);
     static List<Tutorial> findByTitleContaining(String title) {
       // TODO Auto-generated method stub
       return null;
